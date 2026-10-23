@@ -5,7 +5,8 @@ COPY package.json package-lock.json ./
 COPY skema/package.json skema/
 COPY frontend/package.json frontend/
 COPY backend/package.json backend/
-RUN npm ci
+# --ignore-scripts: better-sqlite3 membawa binari siap pakai di prebuilds/, jadi tidak perlu compiler (node-gyp).
+RUN npm ci --ignore-scripts
 COPY skema skema
 COPY frontend frontend
 COPY backend backend
@@ -25,7 +26,7 @@ COPY package.json package-lock.json ./
 COPY skema/package.json skema/
 COPY frontend/package.json frontend/
 COPY backend/package.json backend/
-RUN npm ci --omit=dev -w backend && npm cache clean --force
+RUN npm ci --ignore-scripts --omit=dev -w backend && npm cache clean --force
 COPY --from=build /app/backend/dist backend/dist
 COPY --from=build /app/frontend/dist frontend/dist
 RUN mkdir -p /data /cadangan && chown node:node /data /cadangan
