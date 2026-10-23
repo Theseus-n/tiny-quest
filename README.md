@@ -216,7 +216,7 @@ Cadangan dibuat saat platform menyala, tiap 30 menit jika ada perubahan, dan saa
 
 ```bash
 docker compose down -v
-rm -f backups/*.db        # Windows PowerShell: Remove-Item cadangan\*.db
+rm -f backups/*.db        # Windows PowerShell: Remove-Item backups\*.db
 docker compose up -d
 ```
 

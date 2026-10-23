@@ -10,7 +10,7 @@ RUN npm ci --ignore-scripts
 COPY schema schema
 COPY frontend frontend
 COPY backend backend
-COPY alat alat
+COPY tools tools
 RUN npm run check && npm run build
 
 # Tahap 2: image kecil yang hanya berisi hasil build dan paket yang dibutuhkan backend saat berjalan.
