@@ -1,0 +1,3 @@
+{ "id": "galat-04", "dasar": "jalur-03", "jenis": "ganti",
+  "program": [{ "jenis": "maju" }, { "jenis": "maju" }, { "jenis": "putar-kiri" }, { "jenis": "maju" }, { "jenis": "maju" }], "pengganti": [{ "jenis": "putar-kanan" }, { "jenis": "lompat" }],
+  "penjelasan": "galat.ganti" }

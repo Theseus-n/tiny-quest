@@ -1,0 +1,6 @@
+{ "id": "jalur-03", "kolom": 5, "baris": 3,
+  "jalan": [[0,0],[1,0],[2,0],[2,1],[2,2]], "batu": [],
+  "mulai": { "sel": [0,0], "arah": "kanan" }, "rumah": [2,2],
+  "slot": 5, "blok": [{ "jenis": "maju" }, { "jenis": "putar-kanan" }],
+  "penyelesaian": [{ "jenis": "maju" }, { "jenis": "maju" }, { "jenis": "putar-kanan" }, { "jenis": "maju" }, { "jenis": "maju" }],
+  "penjelasan": "jalur.putar" }

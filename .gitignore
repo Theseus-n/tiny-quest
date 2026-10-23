@@ -1,0 +1,41 @@
+node_modules/
+dist/
+data/
+cadangan/*.db
+uji-e2e/hasil/
+playwright-report/
+test-results/
+
+# --- Data pribadi: database dan cadangan (jangan pernah dipublikasikan) ---
+/data/
+*.db
+*.db-shm
+*.db-wal
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# --- Dokumen internal (hanya ada di laptop ini) ---
+/PRD.md
+/backend.md
+/frontend.md
+/GLOSSARY.md
+/docs/validasi-*.md
+/docs/sumber/
+
+# --- Data pribadi: database dan cadangan (jangan pernah dipublikasikan) ---
+/data/
+*.db
+*.db-shm
+*.db-wal
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# --- Dokumen internal (hanya ada di laptop ini) ---
+/PRD.md
+/backend.md
+/frontend.md
+/GLOSSARY.md
+/docs/validasi-*.md
+/docs/sumber/

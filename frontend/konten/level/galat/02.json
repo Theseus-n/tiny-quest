@@ -1,0 +1,2 @@
+{ "id": "galat-02", "dasar": "jalur-03", "jenis": "berlebih",
+  "program": [{ "jenis": "maju" }, { "jenis": "maju" }, { "jenis": "maju" }, { "jenis": "putar-kanan" }, { "jenis": "maju" }, { "jenis": "maju" }] }

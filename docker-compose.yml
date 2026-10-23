@@ -1,0 +1,21 @@
+services:
+  platform:
+    build: .
+    image: platform-belajar-anak
+    restart: unless-stopped
+    # Hanya bisa dibuka dari laptop ini, bukan dari perangkat lain di WiFi rumah.
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - data:/data
+      - ./cadangan:/cadangan
+    # Memberi waktu membuat cadangan terakhir saat Docker menghentikan platform.
+    stop_grace_period: 20s
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8080/api/kesehatan').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  data:

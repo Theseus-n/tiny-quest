@@ -1,0 +1,6 @@
+{ "id": "tirai-03", "lamaTampilMs": 1500, "benda": "ikan",
+  "soal": [
+    { "jumlah": 6, "susunan": [3, 3], "pilihan": [6, 4] },
+    { "jumlah": 5, "susunan": [3, 2], "pilihan": [3, 5] },
+    { "jumlah": 6, "susunan": [4, 2], "pilihan": [6, 8] } ],
+  "penjelasan": "tirai.kelompok" }

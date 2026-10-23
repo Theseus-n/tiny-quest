@@ -1,0 +1,25 @@
+{
+  "name": "platform-belajar-anak",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "skema",
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w frontend",
+    "build": "npm run build:backend -w frontend && npm run build -w backend",
+    "tes": "vitest run",
+    "periksa": "node alat/periksa.mjs",
+    "suara": "node alat/buat-suara.mjs",
+    "uji-e2e": "playwright test",
+    "mulai": "npm run start -w backend",
+    "uji-backend": "npm run build && playwright test -c playwright.backend.config.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  }
+}

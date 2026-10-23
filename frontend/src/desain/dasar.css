@@ -1,0 +1,103 @@
+html,
+body,
+#akar {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--latar);
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+svg {
+  display: block;
+}
+
+.klik {
+  cursor: inherit;
+  transition: transform 140ms ease-out;
+}
+
+.klik:hover {
+  transform: translateY(-4px);
+}
+
+.dipegang {
+  transform: translateY(-10px);
+  filter: drop-shadow(0 8px 0 color-mix(in srgb, var(--tinta) 25%, transparent));
+}
+
+.angka {
+  font-family: "Andika", sans-serif;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Si Kancil terlihat hidup: berkedip sesekali, dan mulutnya bergerak saat berbicara. */
+.mata-kedip {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: kedip 4.5s infinite;
+}
+
+@keyframes kedip {
+  0%, 94%, 100% { transform: scaleY(1); }
+  97% { transform: scaleY(0.1); }
+}
+
+.mulut-bicara {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mulut 220ms ease-in-out infinite alternate;
+}
+
+@keyframes mulut {
+  from { transform: scaleY(0.35); }
+  to { transform: scaleY(1); }
+}
+
+.muncul {
+  animation: muncul 260ms cubic-bezier(0.3, 1.5, 0.6, 1) both;
+}
+
+@keyframes muncul {
+  from { transform: scale(0.6); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Tanpa membesar, supaya benda tetap lurus dengan cetakan di bawahnya. */
+.muncul-pudar {
+  animation: muncul-pudar 200ms ease-out both;
+}
+
+@keyframes muncul-pudar {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Bentuk tangram lengkap: potongan melompat kecil bersamaan. */
+.rayakan {
+  animation: rayakan 500ms ease-out;
+}
+
+@keyframes rayakan {
+  0%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-14px); }
+}
+
+/* Blok pemicu yang menunggu anak memilih tokoh sasaran. */
+.berdenyut {
+  animation: berdenyut 900ms ease-in-out infinite alternate;
+}
+
+@keyframes berdenyut {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}

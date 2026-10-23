@@ -1,0 +1,5 @@
+{ "id": "tirai-01", "lamaTampilMs": 1500, "benda": "rambutan",
+  "soal": [
+    { "jumlah": 2, "susunan": [2], "pilihan": [2, 3] },
+    { "jumlah": 1, "susunan": [1], "pilihan": [3, 1] },
+    { "jumlah": 3, "susunan": [3], "pilihan": [3, 1] } ] }

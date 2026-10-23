@@ -1,0 +1,1 @@
+{"id": "tangram-01", "bentuk": "persegi", "tempat": [{"jenis": "segitiga-besar", "x": 1, "y": 1, "sudut": 0}, {"jenis": "segitiga-besar", "x": 1, "y": 1, "sudut": 180}], "rak": [{"jenis": "segitiga-besar", "sudut": 0}, {"jenis": "segitiga-besar", "sudut": 180}], "garisBantu": true, "toleransi": 0.8}
