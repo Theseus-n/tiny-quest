@@ -142,6 +142,17 @@ curl http://127.0.0.1:8080/api/kesehatan
 
 ---
 
+## Membuka dari Windows (kalau Docker ada di Ubuntu WSL)
+
+Tidak perlu pengaturan apa pun. Windows dan Ubuntu WSL 2 berbagi alamat `localhost`, jadi:
+
+1. Di Ubuntu: `docker compose up -d --build`
+2. Di Windows, buka Edge atau Chrome, lalu ketik `http://localhost:8080`
+
+Kalau `localhost` tidak menjawab, pakai alamat IP Ubuntu. Di Ubuntu jalankan `hostname -I`, ambil angka pertama (misalnya `172.31.167.165`), lalu buka `http://ANGKA-ITU:8080`. IP ini bisa berubah setelah restart.
+
+Hanya laptop itu sendiri yang bisa membuka platform. HP atau laptop lain di WiFi tidak bisa, karena port dibuka ke `127.0.0.1`.
+
 ## Pemakaian sehari-hari
 
 Jalankan di folder `platform-belajar-anak`.
