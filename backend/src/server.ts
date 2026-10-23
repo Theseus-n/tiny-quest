@@ -1,19 +1,19 @@
 import { existsSync, mkdirSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { serve } from "@hono/node-server";
-import { buatAplikasi } from "./aplikasi";
+import { buatAplikasi } from "./app";
 import { bukaDatabase, databaseKosong } from "./database/database";
-import { buatCadangan, pulihkanTerbaru } from "./cadangan/cadangan";
+import { buatCadangan, pulihkanTerbaru } from "./backup/backup";
 
 // Alamat bawaan dihitung dari folder proyek (dua tingkat di atas file ini, baik src/ maupun dist/),
-// karena `npm run mulai` menjalankan backend dari folder backend/. Di Docker, semuanya diatur lewat env.
+// karena `npm start` menjalankan backend dari folder backend/. Di Docker, semuanya diatur lewat env.
 const akarProyek = resolve(import.meta.dirname, "..", "..");
-const folderData = resolve(process.env.FOLDER_DATA ?? join(akarProyek, "data"));
-const folderCadangan = resolve(process.env.FOLDER_CADANGAN ?? join(akarProyek, "cadangan"));
-const folderTampilan = resolve(process.env.FOLDER_TAMPILAN ?? join(akarProyek, "frontend", "dist"));
+const folderData = resolve(process.env.DATA_DIR ?? join(akarProyek, "data"));
+const folderCadangan = resolve(process.env.BACKUP_DIR ?? join(akarProyek, "backups"));
+const folderTampilan = resolve(process.env.UI_DIR ?? join(akarProyek, "frontend", "dist"));
 const host = process.env.HOST ?? "127.0.0.1";
 const port = Number(process.env.PORT ?? 8080);
-const selangCadangan = Number(process.env.SELANG_CADANGAN_MS ?? 30 * 60 * 1000);
+const selangCadangan = Number(process.env.BACKUP_INTERVAL_MS ?? 30 * 60 * 1000);
 
 mkdirSync(folderData, { recursive: true });
 const jalurDatabase = join(folderData, "platform.db");

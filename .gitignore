@@ -1,8 +1,8 @@
 node_modules/
 dist/
 data/
-cadangan/*.db
-uji-e2e/hasil/
+backups/*.db
+e2e/results/
 playwright-report/
 test-results/
 

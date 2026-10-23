@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  // Suara narator ditanam di bundel (lihat bersama/suara/audio.ts), dan aplikasi hanya dibuka dari laptop sendiri.
+  // Suara narator ditanam di bundel (lihat shared/sound/audio.ts), dan aplikasi hanya dibuka dari laptop sendiri.
   build: { chunkSizeWarningLimit: 4000 },
   server: {
     port: 5173,

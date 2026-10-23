@@ -1,8 +1,8 @@
 import { defineConfig } from "@playwright/test";
 
 export default defineConfig({
-  testDir: "uji-e2e",
-  outputDir: "uji-e2e/hasil/rekaman",
+  testDir: "e2e",
+  outputDir: "e2e/results/rekaman",
   timeout: 60_000,
   fullyParallel: false,
   workers: 1,

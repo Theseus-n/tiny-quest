@@ -1,21 +1,21 @@
 {
-  "name": "platform-belajar-anak",
+  "name": "tiny-quest",
   "private": true,
   "type": "module",
   "workspaces": [
-    "skema",
+    "schema",
     "frontend",
     "backend"
   ],
   "scripts": {
     "dev": "npm run dev -w frontend",
     "build": "npm run build:backend -w frontend && npm run build -w backend",
-    "tes": "vitest run",
-    "periksa": "node alat/periksa.mjs",
-    "suara": "node alat/buat-suara.mjs",
-    "uji-e2e": "playwright test",
-    "mulai": "npm run start -w backend",
-    "uji-backend": "npm run build && playwright test -c playwright.backend.config.ts"
+    "test": "vitest run",
+    "check": "node tools/check.mjs",
+    "voices": "node tools/make-voices.mjs",
+    "e2e": "playwright test",
+    "start": "npm run start -w backend",
+    "e2e:backend": "npm run build && playwright test -c playwright.backend.config.ts"
   },
   "devDependencies": {
     "@playwright/test": "^1.64.1",

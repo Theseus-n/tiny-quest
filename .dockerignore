@@ -2,9 +2,9 @@ node_modules
 **/node_modules
 **/dist
 data
-cadangan
-uji-e2e
-uji-e2e-backend
+backups
+e2e
+e2e-backend
 test-results
 playwright-report
 docs

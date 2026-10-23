@@ -1,8 +1,8 @@
 import { createRoot } from "react-dom/client";
 import { App } from "./App";
-import { pasangVariabelCss } from "./desain/token";
-import { pasangPemblokir } from "./bersama/masukan/pemblokir";
-import "./desain/dasar.css";
+import { pasangVariabelCss } from "./design/token";
+import { pasangPemblokir } from "./shared/input/blocker";
+import "./design/base.css";
 
 pasangVariabelCss(document.documentElement);
 pasangPemblokir();

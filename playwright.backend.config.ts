@@ -1,9 +1,9 @@
 import { defineConfig } from "@playwright/test";
 
-// Uji gabungan: backend dinyalakan dan dimatikan dari dalam uji (lihat uji-e2e-backend/server.ts).
+// Uji gabungan: backend dinyalakan dan dimatikan dari dalam uji (lihat e2e-backend/server.ts).
 export default defineConfig({
-  testDir: "uji-e2e-backend",
-  outputDir: "uji-e2e/hasil/rekaman-backend",
+  testDir: "e2e-backend",
+  outputDir: "e2e/results/rekaman-backend",
   timeout: 90_000,
   workers: 1,
   reporter: [["list"]],

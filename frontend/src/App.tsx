@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
-import { Panggung } from "./bersama/panggung/Panggung";
-import { PenyediaPemandu } from "./bersama/pemandu/Pemandu";
-import { diam } from "./bersama/suara/audio";
-import { Kancil } from "./gambar/Kancil";
-import { DefinisiLembut } from "./gambar/Lembut";
-import { LayarPembuka } from "./pembuka/LayarPembuka";
-import { LayarAwal } from "./pembuka/LayarAwal";
-import { LatarTaman } from "./pembuka/LatarTaman";
-import { PenjelajahJalur } from "./permainan/jalur/PenjelajahJalur";
-import { TiraiDaun } from "./permainan/tirai/TiraiDaun";
-import { DetektifGalat } from "./permainan/galat/DetektifGalat";
-import { BalokBilangan } from "./permainan/balok/BalokBilangan";
-import { MatriksTangram } from "./permainan/tangram/MatriksTangram";
-import { StudioKreasi } from "./permainan/studio/StudioKreasi";
-import { muatProgres, type NamaPermainan, type SemuaProgres } from "./penyimpanan/penyimpanan";
+import { Panggung } from "./shared/stage/Stage";
+import { PenyediaPemandu } from "./shared/guide/Guide";
+import { diam } from "./shared/sound/audio";
+import { Kancil } from "./images/Kancil";
+import { DefinisiLembut } from "./images/Soft";
+import { LayarPembuka } from "./intro/SplashScreen";
+import { LayarAwal } from "./intro/HomeScreen";
+import { LatarTaman } from "./intro/ParkBackground";
+import { PenjelajahJalur } from "./games/path/PathExplorer";
+import { TiraiDaun } from "./games/curtain/LeafCurtain";
+import { DetektifGalat } from "./games/bugs/BugDetective";
+import { BalokBilangan } from "./games/blocks/NumberBlocks";
+import { MatriksTangram } from "./games/tangram/TangramMatrix";
+import { StudioKreasi } from "./games/studio/CreativeStudio";
+import { muatProgres, type NamaPermainan, type SemuaProgres } from "./storage/storage";
 
 type Layar = "pembuka" | "awal" | NamaPermainan | "studio";
 

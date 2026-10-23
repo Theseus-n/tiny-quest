@@ -29,7 +29,7 @@ Panduan ini untuk **orang dewasa yang memasang**. Tidak perlu bisa membuat progr
 - **Docker** = "kotak" yang sudah berisi semua yang dibutuhkan platform. Kamu tidak perlu memasang bahasa pemrograman satu per satu.
 - **Terminal** = jendela untuk mengetik perintah. Di Windows: tekan tombol Windows → ketik `PowerShell` → Enter. Di Ubuntu WSL: buka aplikasi **Ubuntu**.
 - **localhost:8080** = alamat platform di laptopmu sendiri. Perangkat lain di WiFi **tidak bisa** membukanya.
-- Data anak (progres dan karya) tersimpan di laptop, dan **dicadangkan otomatis** ke folder `cadangan/`.
+- Data anak (progres dan karya) tersimpan di laptop, dan **dicadangkan otomatis** ke folder `backups/`.
 
 ---
 
@@ -83,8 +83,8 @@ Di Ubuntu WSL, simpan di folder rumah (jangan di `/mnt/c/...`, jauh lebih cepat 
 
 ```bash
 cd ~
-git clone https://github.com/Theseus-n/platform-belajar-anak.git
-cd platform-belajar-anak
+git clone https://github.com/Theseus-n/tiny-quest.git
+cd tiny-quest
 ```
 
 ### Langkah B2: Nyalakan
@@ -93,7 +93,7 @@ cd platform-belajar-anak
 docker compose up -d --build
 ```
 
-✅ **Yang harus terlihat:** di akhir `Container platform-belajar-anak-platform-1  Started`. Di jalur ini, sekitar setengah menit pada pengujian penulis.
+✅ **Yang harus terlihat:** di akhir `Container tiny-quest-platform-1  Started`. Di jalur ini, sekitar setengah menit pada pengujian penulis.
 
 Lanjut ke **[Buka platform](#buka-platform)**.
 
@@ -155,7 +155,7 @@ Hanya laptop itu sendiri yang bisa membuka platform. HP atau laptop lain di WiFi
 
 ## Pemakaian sehari-hari
 
-Jalankan di folder `platform-belajar-anak`.
+Jalankan di folder `tiny-quest`.
 
 | Mau apa | Perintah |
 |---|---|
@@ -186,18 +186,18 @@ node -v
 
 ```powershell
 cd $HOME\Documents
-git clone https://github.com/Theseus-n/platform-belajar-anak.git
-cd platform-belajar-anak
+git clone https://github.com/Theseus-n/tiny-quest.git
+cd tiny-quest
 npm install --ignore-scripts
 npm run build
-npm run mulai
+npm start
 ```
 
 > ⚠️ **Jangan lupa `--ignore-scripts`.** Tanpa itu, di Windows tanpa Visual Studio muncul error `gyp ERR! find VS`. Paket database sudah membawa file siap pakai, jadi compiler tidak diperlukan.
 
 ✅ **Yang harus terlihat:** `Platform berjalan di http://127.0.0.1:8080`. Buka alamat itu di browser. Hentikan dengan **Ctrl + C** (jangan tutup paksa, supaya cadangan terakhir dibuat).
 
-Data ada di folder `data/` dan cadangan di `cadangan/`.
+Data ada di folder `data/` dan cadangan di `backups/`.
 
 ---
 
@@ -206,17 +206,17 @@ Data ada di folder `data/` dan cadangan di `cadangan/`.
 | Tempat | Isi | Ikut saat folder disalin? |
 |---|---|:-:|
 | Volume Docker `data` | Database yang dipakai | ❌ |
-| Folder `cadangan/` | Salinan `platform-TANGGAL-JAM.db` | ✅ |
+| Folder `backups/` | Salinan `platform-TANGGAL-JAM.db` | ✅ |
 
 Cadangan dibuat saat platform menyala, tiap 30 menit jika ada perubahan, dan saat dimatikan dengan `docker compose down`.
 
-**Pindah laptop:** di laptop lama `docker compose down`, salin **seluruh folder proyek termasuk `cadangan/`**, lalu di laptop baru `docker compose up -d --build`. Progres dipulihkan otomatis (log: `Database dipulihkan dari ...`). Jangan hapus data laptop lama sebelum progres terlihat di laptop baru.
+**Pindah laptop:** di laptop lama `docker compose down`, salin **seluruh folder proyek termasuk `backups/`**, lalu di laptop baru `docker compose up -d --build`. Progres dipulihkan otomatis (log: `Database dipulihkan dari ...`). Jangan hapus data laptop lama sebelum progres terlihat di laptop baru.
 
 **Mulai ulang dari level 1** (⚠️ menghapus progres dan karya anak):
 
 ```bash
 docker compose down -v
-rm -f cadangan/*.db        # Windows PowerShell: Remove-Item cadangan\*.db
+rm -f backups/*.db        # Windows PowerShell: Remove-Item cadangan\*.db
 docker compose up -d
 ```
 
@@ -235,7 +235,7 @@ Dua-duanya harus dikosongkan, kalau tidak cadangan lama dipulihkan lagi.
 | `permission denied` pada docker (Ubuntu) | Belum di grup docker | `sudo usermod -aG docker $USER`, tutup-buka Ubuntu |
 | `port is already allocated` (8080) | Program lain memakai 8080 | Ubah di `docker-compose.yml` menjadi `"127.0.0.1:8081:8080"`, buka `http://localhost:8081` |
 | Halaman tidak terbuka | Container mati | `docker compose ps` lalu `docker compose logs platform` |
-| Mulai dengan progres lama, bukan level 1 | `cadangan/` berisi file `.db` | Ikuti **Mulai ulang** di atas |
+| Mulai dengan progres lama, bukan level 1 | `backups/` berisi file `.db` | Ikuti **Mulai ulang** di atas |
 | Tidak ada suara | Belum klik tombol besar pertama | Klik tombol besar di layar pembuka |
 | Docker Desktop macet "starting" | Virtualisasi/WSL 2 | Aktifkan virtualisasi di BIOS, `wsl --install` (Admin) |
 
@@ -247,21 +247,22 @@ Dua-duanya harus dikosongkan, kalau tidak cadangan lama dipulihkan lagi.
 |---|---|
 | `npm install --ignore-scripts` | Pasang semua paket |
 | `npm run dev` | Tampilan dengan Vite di `http://localhost:5173` |
-| `npm run periksa` | Cek aturan konsistensi |
-| `npm run tes` | Uji unit (Vitest) |
-| `npm run uji-e2e` | Uji ujung ke ujung (Playwright, butuh `npx playwright install`) |
+| `npm run check` | Cek aturan konsistensi |
+| `npm test` | Uji unit (Vitest) |
+| `npm run e2e` | Uji ujung ke ujung (Playwright, butuh `npx playwright install`) |
 | `npm run build` | Bangun tampilan dan backend |
 
-Variabel lingkungan backend (diatur otomatis di Docker): `HOST`, `PORT` (8080), `FOLDER_DATA`, `FOLDER_CADANGAN`, `FOLDER_TAMPILAN`, `SELANG_CADANGAN_MS` (30 menit).
+Variabel lingkungan backend (diatur otomatis di Docker): `HOST`, `PORT` (8080), `DATA_DIR`, `BACKUP_DIR`, `UI_DIR`, `BACKUP_INTERVAL_MS` (30 menit).
 
 ```
-platform-belajar-anak/
+tiny-quest/
 ├── frontend/   tampilan anak (React + Vite)
 ├── backend/    API dan penyimpanan (Hono + SQLite)
-├── skema/      bentuk data bersama
-├── alat/       skrip pemeriksa dan pembuat suara
-├── cadangan/   cadangan database (*.db tidak masuk Git)
+├── schema/     bentuk data bersama
+├── tools/      skrip pemeriksa dan pembuat suara
+├── backups/    cadangan database (*.db tidak masuk Git)
 ├── docs/       keputusan arsitektur (ADR)
+├── e2e/        uji tampilan (Playwright)
 └── Dockerfile · docker-compose.yml
 ```
 

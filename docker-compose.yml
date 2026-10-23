@@ -1,14 +1,14 @@
 services:
   platform:
     build: .
-    image: platform-belajar-anak
+    image: tiny-quest
     restart: unless-stopped
     # Hanya bisa dibuka dari laptop ini, bukan dari perangkat lain di WiFi rumah.
     ports:
       - "127.0.0.1:8080:8080"
     volumes:
       - data:/data
-      - ./cadangan:/cadangan
+      - ./backups:/backups
     # Memberi waktu membuat cadangan terakhir saat Docker menghentikan platform.
     stop_grace_period: 20s
     healthcheck:
