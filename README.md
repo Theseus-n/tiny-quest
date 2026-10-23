@@ -8,8 +8,8 @@ Panduan ini untuk **orang dewasa yang memasang**. Tidak perlu bisa membuat progr
 
 | Kamu pakai | Jalur | Waktu |
 |---|---|---|
-| Windows 10/11 dan mau yang paling mudah | **[Jalur A: Docker Desktop](#jalur-a-windows-dengan-docker-desktop)** | 15–30 menit |
-| Windows dengan Ubuntu di WSL dan Docker di dalamnya | **[Jalur B: Docker di Ubuntu (WSL)](#jalur-b-docker-di-ubuntu-wsl)** *(sudah diuji)* | 5–10 menit |
+| Windows 10/11, belum punya Docker | **[Jalur A: Pasang Docker Desktop dulu](#jalur-a-windows-dengan-docker-desktop)**, lalu lanjut ke Jalur B | 15–30 menit |
+| Sudah punya Docker (Ubuntu WSL, Linux, atau Docker Desktop) | **[Jalur B: Ambil dan nyalakan dengan Docker](#jalur-b-ambil-dan-nyalakan-dengan-docker)** *(sudah diuji)* | 5–10 menit |
 | Tidak mau Docker | **[Jalur C: Tanpa Docker](#jalur-c-tanpa-docker-nodejs)** | 10–20 menit |
 
 > Cukup pilih **satu** jalur. Semuanya menghasilkan hal yang sama: platform di `http://localhost:8080`.
@@ -18,9 +18,9 @@ Panduan ini untuk **orang dewasa yang memasang**. Tidak perlu bisa membuat progr
 
 | Jalur | Status |
 |---|---|
-| B (Docker di Ubuntu WSL) | ✅ Diuji dari `git clone` sampai halaman terbuka, Docker 29 |
-| C (Node.js, Windows) | ✅ Diuji: periksa, build, 87 tes, server menyala |
-| A (Docker Desktop) | ⚠️ Perintah platform sama dengan B, tetapi pemasangan Docker Desktop belum diuji penulis |
+| B (Docker) | ✅ Diuji dari `git clone` sampai status `healthy`, di Ubuntu 22.04 WSL dengan Docker 29. Perintahnya sama di Docker Desktop |
+| C (Node.js, Windows) | ✅ Diuji: periksa, build, 87 tes, 40 uji tampilan di Edge, server menyala |
+| A (pasang Docker Desktop) | Hanya langkah memasang Docker. Platformnya sendiri sama dengan Jalur B |
 
 ---
 
@@ -61,33 +61,13 @@ docker compose version
 
 ✅ **Yang harus terlihat:** dua baris versi. Jika `docker is not recognized`, tutup-buka PowerShell atau restart laptop.
 
-### Langkah A3: Unduh platform
-
-```powershell
-cd $HOME\Documents
-git clone https://github.com/Theseus-n/platform-belajar-anak.git
-cd platform-belajar-anak
-```
-
-✅ **Yang harus terlihat:** folder baru `platform-belajar-anak`, dan `dir` menampilkan `Dockerfile`, `docker-compose.yml`, `frontend`, `backend`.
-
-### Langkah A4: Nyalakan
-
-```powershell
-docker compose up -d --build
-```
-
-⏳ Pertama kali **beberapa menit** (mengunduh dan membangun). Layar penuh tulisan itu normal.
-
-✅ **Yang harus terlihat:** di akhir ada `Container ... Started`.
-
-Lanjut ke **[Buka platform](#buka-platform)**.
+Docker sudah siap. Lanjut ke **[Jalur B](#jalur-b-ambil-dan-nyalakan-dengan-docker)** (perintahnya sama; di Windows jalankan di PowerShell).
 
 ---
 
-# Jalur B: Docker di Ubuntu (WSL)
+# Jalur B: Ambil dan nyalakan dengan Docker
 
-Buka aplikasi **Ubuntu**, lalu cek alatnya:
+Buka terminalmu: **Ubuntu** (WSL/Linux), atau **PowerShell** di Windows dengan Docker Desktop. Lalu cek alatnya:
 
 ```bash
 git --version
@@ -99,7 +79,7 @@ docker compose version
 
 ### Langkah B1: Unduh platform
 
-Simpan di folder rumah Ubuntu (jangan di `/mnt/c/...`, jauh lebih cepat dan aman untuk database):
+Di Ubuntu WSL, simpan di folder rumah (jangan di `/mnt/c/...`, jauh lebih cepat dan aman untuk database). Di PowerShell, `cd $HOME\Documents` dulu:
 
 ```bash
 cd ~

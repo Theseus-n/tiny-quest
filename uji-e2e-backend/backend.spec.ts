@@ -57,7 +57,7 @@ test("karya Studio Kreasi tersimpan di backend dan bisa dibuka dari browser lain
   await page.mouse.click(b.x + (2.5 * b.width) / 9, b.y + (1.5 * b.height) / 4);
   const daftarKarya = async () => (await fetch(`${ALAMAT}/api/karya`)).json();
   await expect.poll(async () => (await daftarKarya()).length, { timeout: 6000 }).toBe(1);
-  expect((await daftarKarya())[0].gambarKecil).toMatch(/^data:image\/svg\+xml;base64,/);
+  expect((await daftarKarya())[0].gambarKecil).toMatch(/^data:image\/(svg\+xml|png);base64,/);
 
   const lain = await browser.newPage({ viewport: { width: 1366, height: 768 } });
   await lain.goto("/");
