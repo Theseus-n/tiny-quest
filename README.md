@@ -177,15 +177,15 @@ Remove-Item node_modules -Recurse -Force -ErrorAction SilentlyContinue
 
 > `node_modules` tidak perlu dibawa: Docker membangunnya sendiri.
 
-**Cara 2: dari Git** *(jika proyek sudah punya alamat repo)*
+**Cara 2: dari Git (disarankan)**
 
 ```powershell
 cd $HOME\Documents
-git clone ALAMAT-REPO-PROYEK platform-belajar-anak
+git clone https://github.com/Theseus-n/platform-belajar-anak.git
 cd platform-belajar-anak
 ```
 
-Ganti `ALAMAT-REPO-PROYEK` dengan alamat yang kamu terima. File `.db` di `cadangan/` sudah diabaikan Git (`.gitignore`), jadi hasil clone otomatis bersih. Catatan: saat panduan ini ditulis, repo lokalnya belum punya commit dan belum punya alamat remote.
+File `.db` di `cadangan/` diabaikan Git (`.gitignore`), jadi hasil clone otomatis bersih dan dimulai dari level 1.
 
 ### 🧪 Tes
 
